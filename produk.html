@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EG-Tee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #736551;
+      color: white;
+    }
+
+    header {
+      background-color: #2F2224;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .nav-search-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-left: auto;
+    }
+
+    nav a {
+      color: rgb(255, 253, 253);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    nav a.active {
+      color: #f2c100;
+      font-weight:bold;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 4px;
+      padding: 4px 6px;
+      gap: 6px;
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .search-container button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icons button {
+      background: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .icons img {
+      width: 24px;
+      height: 24px;
+    }
+
+   /* BEST SELLER JUDUL */
+    h2 {
+      text-align: center;
+      margin: 50px 0 30px;
+      font-size: 32px;
+      color: #fcfaf9;
+      font-weight: 'Inria Serif', serif;
+      position: relative;
+    }
+
+    h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background-color: #EBDBBF;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    /* Product Grid */
+      .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 60px;
+      padding: 0 92px;
+      justify-content: center;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+      max-width: 280px; 
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: top;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .product:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-title {
+      font-weight: bold;
+      margin: 12px 0 6px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .product-price {
+      color: #e74c3c;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    /* KEYFRAME CARD*/
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product {
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    /* DELAY CARD */
+    .product:nth-child(1) {animation-delay: 0.1s;
+    }
+    .product:nth-child(2) {animation-delay: 0.2s;}
+
+    .product:nth-child(3) { animation-delay: 0.3s;}
+
+    .product:nth-child(4) { animation-delay: 0.4s;}
+
+    .product:nth-child(5) {animation-delay: 0.5s;}
+
+    .product:nth-child(6) { animation-delay: 0.6s;}
+
+    .product:nth-child(7) {  animation-delay: 0.7s;}
+
+    .product:nth-child(8) {  animation-delay: 0.8s;}
+
+    .product:nth-child(9) {  animation-delay: 0.9s;}
+
+     .product-description {
+  text-align: center;
+  margin: 40px auto;
+  color: white;
+}
+
+.product-description h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 40px 80px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;              
+  align-items: center;       
+  gap: 15px;               
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.feature-text h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.feature-text p {
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="logo fiks.png" alt="Logo">
+    </div>
+
+    <div class="nav-search-icons">
+      <nav>
+        <a href="Beranda.html">BERANDA</a>
+        <a href="produk.html" class="active">PRODUK</a>
+        <a href="spesifikasi1.html">SPESIFIKASI</a>
+        <a href="login1.html">LOGIN</a>
+      </nav>
+
+      <div class="search-container">
+        <input type="text" placeholder="Telusuri T-shirt Erigo" />
+        <button>
+          <img src="image search.png" alt="Search" width="20" height="20">
+        </button>
+      </div>
+
+      <div class="icons">
+        <button>
+          <img src="icon keranjang.jpg" alt="Keranjang">
+        </button>
+        <button>
+          <img src="icon user.png" alt="Akun">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>PRODUK BEST SELLER ERIGO</h2>
+    <div class="product-grid">
+      <div class="product">
+        <a href="spesifikasi1.html"></a>
+        <img src="best seller 1. t-shirt oxana black.webp" alt="best seller 1">
+        <div class="product-title">Erigo T-Shirt Oxana Black-Kaos Unisex</div>
+        <div class="product-price">Rp. 98.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 2.t-shirt peace hippie khaki.webp" alt="T-shirt Classic">
+        <div class="product-title">Erigo T-Shirt Peace Hippie Khaki - Kaos Unisex</div>
+        <div class="product-price">Rp. 90.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 3. t-shirt summer peace navy.webp" alt="T-shirt Minimal">
+        <div class="product-title">Erigo T-Shirt Summer Peace Navy - Kaos Unisex</div>
+        <div class="product-price">Rp. 85.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller  4. t-shirt stay hippie lack.webp" alt="T-shirt Urban">
+        <div class="product-title">Erigo T-Shirt Vibes Black - Kaos Unisex</div>
+        <div class="product-price">Rp. 88.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 5.t-shirt another day blackkk.png" alt="T-shirt Street">
+        <div class="product-title">Erigo T-Shirt Another Day Black - Kaos Unisex</div>
+        <div class="product-price">Rp. 89.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 6.tshirt adventure surfing blackkk.png" alt="T-shirt Premium">
+        <div class="product-title">Erigo T-Shirt Adventure Surfing Black - Kaos Unisex</div>
+        <div class="product-price">Rp. 94.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 7.Erigo T-Shirt Vintage Gang Blackkk.png" alt="T-shirt Premium">
+        <div class="product-title">Erigo T-Shirt Vintage Gang Black - Kaos Unisex</div>
+        <div class="product-price">Rp. 88.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 8.Erigo T-Shirt Project Summer Black - Kaos Unisex.png" alt="T-shirt Premium">
+        <div class="product-title">Erigo T-Shirt Project Summer Black - Kaos Unisex</div>
+        <div class="product-price">Rp. 98.000</div>
+      </div>
+      <div class="product">
+        <img src="best seller 9.Erigo T-Shirt Basic Maroon White - Kaos Unisex.png" alt="T-shirt Premium">
+        <div class="product-title">Erigo T-Shirt Basic Maroon White - Kaos Unisex</div>
+        <div class="product-price">Rp. 99.000</div>
+      </div>
+    </div>
+  </section>
+  
+   <div class="product-description">
+  <h2>KOLEKSI T-SHIRT BEST SELLER KAMI!!</h2>
+  
+ <!-- Features -->
+<section class="features">
+  <div class="feature-card">
+    <img src="SNI.png" alt="SNI">
+    <div class="feature-text">
+      <h3>SNI</h3>
+      <p>Standar Nasional Indonesia</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="premium.jpg" alt="Premium">
+    <div class="feature-text">
+      <h3>Bahan Premium</h3>
+      <p>Cotton combed 30s yang adem, lembut, dan tahan lama.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="jahitan.jpg" alt="Jahitan">
+    <div class="feature-text">
+      <h3>Jahitan Rapi</h3>
+      <p>Jahitan pada T-shirt ini sudah terjamin rapi dan bikin nyaman</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="Produk Original.png" alt="Original">
+    <div class="feature-text">
+      <h3>Produk Original</h3>
+      <p>Produk 100% asli produk</p>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
