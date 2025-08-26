@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Akun - EG-Tee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    /* NAVBAR */
+    header {
+      background-color: #111;
+      padding: 15px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      color: #f2c100;
+    }
+
+    /* LAYOUT FORM + GAMBAR */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      margin: 0;
+    }
+
+    .form-section {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .form-section h2 {
+      margin-top: 0;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-section button {
+      width: 100%;
+      padding: 12px;
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .image-section {
+      flex: 1;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* FOOTER/DESKRIPSI */
+    .footer {
+      background-color: #d9dce2;
+      padding: 15px 40px;
+      font-size: 14px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="logo fiks.png" alt="EG-Tee Logo">
+    </div>
+    <nav>
+      <a href="Beranda.html">BERANDA</a>
+      <a href="produk.html">PRODUK</a>
+      <a href="spesifikasi1.html">SPESIFIKASI</a>
+      <a href="login1.html" class="active">LOGIN</a>
+    </nav>
+  </header>
+
+  <!-- ISI UTAMA -->
+  <div class="container">
+    <!-- FORM -->
+    <div class="form-section">
+      <h2>Daftar akun baru</h2>
+      <p>Daftar akun untuk mendapatkan kenyamanan belanja yang lebih baik</p>
+
+      <label>Nama Lengkap</label>
+      <input type="text" placeholder="masukkan nama lengkap">
+
+      <label>Alamat Email</label>
+      <input type="email" placeholder="masukkan email">
+
+      <label>No.Telp</label>
+      <input type="text" placeholder="masukkan no.telp">
+
+      <label>Kata Sandi</label>
+      <input type="password" placeholder="masukkan kata sandi">
+
+      <label>Konfirmasi Kata Sandi</label>
+      <input type="password" placeholder="konfirmasi kata sandi">
+
+      <button onclick="window.location.href='login2.html'">confirm</button>
+    </div>
+
+    <!-- GAMBAR -->
+    <div class="image-section">
+      <img src="ERIGO LOGIN.jpg" alt="Erigo Store">
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p><strong>Erigo completes your daily style</strong><br>
+    Erigo adalah brand fashion asal Indonesia yang menghadirkan koleksi T-shirt berkualitas tinggi dengan desain kekinian dan bahan premium. Berdiri sejak tahun 2011, Erigo dikenal lewat gaya streetwear modern yang cocok untuk berbagai aktivitas harian — mulai dari hangout santai, kerja, hingga travelling.</p>
+  </div>
+
+</body>
+</html>

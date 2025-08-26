@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - EG-Tee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    /* NAVBAR */
+    header {
+      background-color: #111;
+      padding: 15px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      color: #f2c100;
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      display: flex;
+      margin: 30px auto;
+      width: 90%ap;
+      max-width: 1000px;
+      background: white;
+    }
+
+    .form-section {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    .form-box {
+      background: #e8e8e8;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    
+    }
+    
+    
+    .image-section img {
+      width: 100%;
+      height: 100vh;   
+      object-fit: auto;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .image-section {
+      flex: 1;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* DESCRIPTION */
+    .description {
+      background: #e4ebf5;
+      padding: 15px 50px;
+      font-size: 14px;
+      color: #222;
+    }
+
+    .description span {
+      font-weight: bold;
+      color: #2a2a2a;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="logo fiks.png" alt="EG-Tee Logo">
+    </div>
+    <nav>
+      <a href="Beranda.html">BERANDA</a>
+      <a href="produk.html">PRODUK</a>
+      <a href="spesifikasi1.html">SPESIFIKASI</a>
+      <a href="login2.html" class="active">LOGIN</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <div class="container">
+    <!-- FORM -->
+    <div class="form-section">
+      <h2>DAFTAR</h2>
+      <div class="form-box">
+        Apakah Anda sudah memiliki akun EG-Tee?<br>
+        Silakan masuk dengan menggunakan nomor handphone terdaftar
+      </div>
+      <label for="phone">Nomor Handphone</label>
+      <input type="text" id="phone" placeholder="+62">
+     <button onclick="window.location.href='login2.html'">Lanjut</button>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="image-section">
+      <img src="ERIGO LOGIN.jpg" alt="Erigo Store">
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="description">
+    <span>Erigo completes your daily style</span>  
+    EG-Tee menghadirkan koleksi T-shirt berkualitas tinggi dengan desain kekinian dan bahan premium. 
+    Berdiri sejak tahun 2011, Erigo dikenal lewat gaya streetwear modern yang cocok untuk berbagai aktivitas harian.
+  </div>
+
+  <!-- FOOTER -->
+ 
+</body>
+</html>
