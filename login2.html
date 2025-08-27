@@ -82,6 +82,50 @@
       object-fit: cover;
     }
 
+    /* Box sukses */
+    #sukses {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #sukses:target {
+      display: flex;
+    }
+
+    .sukses-box {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .sukses-box h2 {
+      color: green;
+      margin-bottom: 10px;
+    }
+
+    .sukses-box a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .sukses-box a:hover {
+      background: #333;
+    }
+
     /* FOOTER/DESKRIPSI */
     .footer {
       background-color: #d9dce2;
@@ -128,12 +172,25 @@
       <label>Konfirmasi Kata Sandi</label>
       <input type="password" placeholder="konfirmasi kata sandi">
 
-      <button onclick="window.location.href='login2.html'">confirm</button>
+      <!-- Daftar Sukses -->
+     <a href="#sukses" style="text-decoration:none;">
+      <button type="button">confirm</button>
+    </a>
     </div>
 
     <!-- GAMBAR -->
     <div class="image-section">
       <img src="ERIGO LOGIN.jpg" alt="Erigo Store">
+    </div>
+  </div>
+
+
+  <!-- Box sukses -->
+  <div id="sukses">
+    <div class="sukses-box">
+      <h2>✅ Pendaftaran Berhasil</h2>
+      <p>Akun kamu sudah terdaftar.</p>
+      <a href="login2.html">Tutup</a>
     </div>
   </div>
 
