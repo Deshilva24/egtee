@@ -126,13 +126,107 @@
       background: #333;
     }
 
-    /* FOOTER/DESKRIPSI */
-    .footer {
+    /* DESKRIPSI */
+    .deskripsi {
       background-color: #d9dce2;
       padding: 15px 40px;
       font-size: 14px;
       font-style: italic;
     }
+
+     /* FOOTER */
+    footer {
+      background: #000000;
+      color: #e5e7eb;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      display: flex;         
+      align-items: center;    
+      gap: 15px;              
+    }
+
+    /* Bagian kiri */
+    .footer-left img {
+      width: 140px;
+      height: 140px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer-left p {
+      max-width: 300px;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .footer-left p b {
+      color: #fff;
+    }
+
+      .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Menu Tengah */
+    .footer-center {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;         
+      margin-top: -0px;  
+    }
+
+    .footer-center p {
+      margin: 0 0 10px; 
+      font-weight: bold;
+      font-size: 19px;
+      color: #fff;
+    }
+
+    .footer-center a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 14px;
+      gap: 20px;
+    }
+
+    .footer-center a:hover {
+      color: #f7f305;
+    }
+
+    /* Bagian kanan */
+    .footer-right p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 18px;
+      color: #fff;
+      margin-top: -1px;
+    }
+
+    .footer-right a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-right img {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #42393A;
+      padding: 6px;
+    }
+    
   </style>
 </head>
 <body>
@@ -194,11 +288,46 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- DESKRIPSI-->
   <div class="footer">
     <p><strong>Erigo completes your daily style</strong><br>
     Erigo adalah brand fashion asal Indonesia yang menghadirkan koleksi T-shirt berkualitas tinggi dengan desain kekinian dan bahan premium. Berdiri sejak tahun 2011, Erigo dikenal lewat gaya streetwear modern yang cocok untuk berbagai aktivitas harian — mulai dari hangout santai, kerja, hingga travelling.</p>
   </div>
+
+  <footer>
+    <!-- Kiri -->
+    <div class="footer-left">
+      <img src="logo fiks.png" alt="EG-Tee Logo">
+      <p>
+        <b>EG-Tee menghadirkan koleksi T-shirt dari brand Erigo dengan berbagai pilihan model.</b><br>
+        Nyaman dipakai, desain kekinian, cocok untuk gaya harian kamu.
+      </p>
+    </div>
+
+    <!-- Tengah -->
+    <div class="footer-center">
+       <p>Navigasi</p>
+      <a href="Beranda.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="spesifikasi1.html">Spesifikasi</a>
+      <a href="login1.html">Login</a>
+    </div>
+
+    <!-- Kanan -->
+    <div class="footer-right">
+      <p>Hubungi Kami</p>
+      <a href="tel:083289341263">
+        <img src="image WA.png" alt="WhatsApp"> 0832-8934-1263
+      </a>
+      <a href="#">
+        <img src="image IG.png" alt="Instagram"> EG-Tee.Official
+      </a>
+      <a href="#">
+        <img src="image tiktok.png" alt="TikTok"> EG-Tee.Wear
+      </a>
+    </div>
+    
+  </footer>
 
 </body>
 </html>

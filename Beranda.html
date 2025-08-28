@@ -6,7 +6,9 @@
   <title>EG-Tee</title>
   <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
   <style>
- body {
+
+/* NAVBAR */
+   body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #736551;
@@ -21,7 +23,7 @@
     }
 
     .logo img {
-     height: 50px;
+     height: 58px;
     }
 
     .nav-search-icons {
@@ -55,9 +57,9 @@
       align-items: center;
       background-color: white;
       border-radius: 4px;
-      padding: 10px;        
+      padding: 5x 10px;        
       gap: 6px;
-      height: 44px;         
+      height: 46px;         
       box-sizing: border-box;
     }
 
@@ -73,11 +75,11 @@
       border: none;
       cursor: pointer;
       font-size: 18px;
+      padding-right: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
 
     .icons {
       display: flex;
@@ -90,13 +92,15 @@
       border-radius: 4px;
       padding: 6px;
       cursor: pointer;
+      margin-top: 9px;
     }
 
     .icons img {
-      width: 28px;
-      height: 26px;
+      width: 29px;
+      height: 27px;
     }
 
+    /* BANNER */
      .banner-container {
       position: auto;
       height: 700px;
@@ -106,6 +110,7 @@
       justify-content: center;
     }
 
+    /* ERIGO COLLAB */
     body {
           font-family: 'Arial', sans-serif;
         }
@@ -180,6 +185,7 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* CARD BEST SELLER DAN NEW ARRIVAL*/
         .card-content {
             display: flex;
             gap: 20px;
@@ -219,8 +225,6 @@
             color: #555;
             text-align: justify;
         }
-
-
 
         @media (max-width: 768px) {
             .hero-title {
@@ -355,7 +359,98 @@
       box-shadow: 0 5px 15px rgba(242,193,0,.4);
     }
 
-    
+ /* FOOTER */
+    footer {
+      background: #42393A;
+      color: #e5e7eb;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      display: flex;         
+      align-items: center;    
+      gap: 15px;              
+    }
+
+    /* Bagian kiri */
+    .footer-left img {
+      width: 155px;
+      height: 155px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer-left p {
+      max-width: 300px;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .footer-left p b {
+      color: #fff;
+    }
+
+      .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Menu Tengah */
+    .footer-center {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;         
+      margin-top: -0px;  
+    }
+
+    .footer-center p {
+      margin: 0 0 10px; 
+      font-weight: bold;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .footer-center a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 19px;
+      gap: 20px;
+    }
+
+    .footer-center a:hover {
+      color: #f7f305;
+    }
+
+    /* Bagian kanan */
+    .footer-right p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 20px;
+      color: #fff;
+      margin-top: -1px;
+    }
+
+    .footer-right a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-right img {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #42393A;
+      padding: 6px;
+    }
 
   </style>
   </head>
@@ -439,19 +534,25 @@
           <img src="foto 1.webp" alt="Best Seller 1">
           <p class="name">Erigo T-Shirt Oversize Christy Final Dance</p>
           <p class="price">Rp119.000</p>
+          <a href="produk.html">
           <button>LIHAT LAINNYA</button>
+          </a>
         </div>
         <div class="product-card">
           <img src="fto 2.webp" alt="Best Seller 2">
           <p class="name">Erigo T-Shirt Oversize Christy Final Dance</p>
           <p class="price">Rp275.000</p>
+          <a href="produk.html">
           <button>LIHAT LAINNYA</button>
+          </a>
         </div>
         <div class="product-card">
           <img src="foto 3.jpg" alt="Best Seller 3">
           <p class="name">Erigo T-Shirt Oversize Pocket Cool Olive Unisex</p>
           <p class="price">Rp275.000</p>
+          <a href="produk.html">
           <button>LIHAT LAINNYA</button>
+          </a>
         </div>
       </div>
     </section>
@@ -460,34 +561,79 @@
       <h2>NEW ARRIVAL</h2>
       <div class="arrival-list">
         <div class="arrival-card">
+          <a href="spesifikasiNA1.html" style="text-decoration: none; color: inherit;">
           <img src="produk 1.t-shirt utagawa navy.webp" alt="Produk 1">
           <button>DETAIL</button>
+          </a>
         </div>
         <div class="arrival-card">
+          <a href="spesifikasiNA2.html" style="text-decoration: none; color: inherit;">
           <img src="produk 2.t-shirt umeda navy.webp" alt="Produk 2">
           <button>DETAIL</button>
+          </a>
         </div>
         <div class="arrival-card">
-          <img src="produk 3.t-shirt umano maroon.webp" alt="Produk 3">
+           <a href="spesifikasiNA1.html" style="text-decoration: none; color: inherit;">
+          <img src="produk 3.Erigo T-Shirt Gaser Black - Kaos Unisex.webp" alt="Produk 3">
           <button>DETAIL</button>
+           </a>
         </div>
         <div class="arrival-card">
+           <a href="spesifikasiNA1.html" style="text-decoration: none; color: inherit;">
           <img src="produk 4.t-shirt ushijama navy.webp" alt="Produk 4">
           <button>DETAIL</button>
+          </a>
         </div>
         <div class="arrival-card">
+           <a href="spesifikasiNA1.html" style="text-decoration: none; color: inherit;">
           <img src="produk 5.t-shirt atom black.webp" alt="Produk 5">
           <button>DETAIL</button>
+          </a>
         </div>
         <div class="arrival-card">
+           <a href="spesifikasiNA1.html" style="text-decoration: none; color: inherit;">
           <img src="produk 6.t-shirt ukyo black.webp" alt="Produk 6">
           <button>DETAIL</button>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
+  <footer>
+    <!-- Kiri -->
+    <div class="footer-left">
+      <img src="logo fiks.png" alt="EG-Tee Logo">
+      <p>
+        <b>EG-Tee menghadirkan koleksi T-shirt dari brand Erigo dengan berbagai pilihan model.</b><br>
+        Nyaman dipakai, desain kekinian, cocok untuk gaya harian kamu.
+      </p>
+    </div>
 
+    <!-- Tengah -->
+    <div class="footer-center">
+       <p>Navigasi</p>
+      <a href="Beranda.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="spesifikasi1.html">Spesifikasi</a>
+      <a href="login1.html">Login</a>
+    </div>
+
+    <!-- Kanan -->
+    <div class="footer-right">
+      <p>Hubungi Kami</p>
+      <a href="tel:083289341263">
+        <img src="image WA.png" alt="WhatsApp"> 0832-8934-1263
+      </a>
+      <a href="#">
+        <img src="image IG.png" alt="Instagram"> EG-Tee.Official
+      </a>
+      <a href="#">
+        <img src="image tiktok.png" alt="TikTok"> EG-Tee.Wear
+      </a>
+    </div>
+    
+  </footer>
 
 </body>
 </html>
