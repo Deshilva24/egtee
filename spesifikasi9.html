@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EG-Tee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #736551;
+      color: white;
+    }
+
+    /* NAVBAR */
+    header {
+      background-color: #2F2224;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .logo img { height: 40px; }
+    .nav-search-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-left: auto;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    nav a.active { color: #f2c100; font-weight:bold; }
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 4px;
+      padding: 4px 6px;
+      gap: 6px;
+    }
+    .search-container input {
+      border:none; 
+      outline:none; 
+      font-size:14px; 
+    }
+
+    .search-container button { 
+      background:none; 
+      border:none; 
+      cursor:pointer; 
+    }
+
+    .icons { 
+      display:flex; 
+      gap:10px; 
+      position:relative; 
+    }
+
+    .icons button {
+      background: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px;
+      cursor: pointer;
+      position:relative;
+    }
+
+    .icons img { 
+      width:24px; 
+      height:24px; 
+    }
+
+    .cart-count {
+      position:absolute;
+      top:-6px;
+      right:-6px;
+      background:red;
+      color:white;
+      font-size:12px;
+      font-weight:bold;
+      border-radius:50%;
+      width:18px; height:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* PRODUK DETAIL */
+    .wrap{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 16px 56px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+    }
+    .gallery{ 
+      width:100%;
+    }
+    
+    .main-photo{
+      background:#fff;
+      border-radius:14px;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      aspect-ratio:1/1;
+      overflow:hidden;
+    }
+
+    .main-photo img {
+      max-width:100%; 
+      max-height:100%; 
+      object-fit:contain;
+    }
+
+    .panel {
+      display:flex; 
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .title {
+      font-weight:700; 
+      font-size:22px;
+    }
+
+    .price {
+      font-weight:800; 
+      font-size:24px; 
+      color:#e9baba
+    }
+
+    .label { 
+      margin-top:8px; 
+      font-weight:600
+    }
+
+    .sizes {
+      display:flex; 
+      gap:10px;
+    }
+
+    .qty{
+      display:inline-flex; 
+      align-items:center; 
+      gap:6px;
+      background:#dcdde1; 
+      border-radius:8px; 
+      padding:6px;
+      width:140px; 
+      color:#000;
+    }
+    .qty input{
+      width:64px; 
+      text-align:center; 
+      border:none;
+      background:transparent; 
+      font-weight:bold; 
+      font-size:16px;
+    }
+    .qty button{
+      width:32px; 
+      height:32px;
+      border:none; 
+      border-radius:6px;
+      cursor:pointer; 
+      background:#000; 
+      color:#fff; 
+      font-size:18px;
+    }
+
+    .cta{
+      margin-top:6px;
+      background:#111; 
+      color:#fff; 
+      border:none;
+      border-radius:12px; 
+      padding:14px 18px;
+      font-weight:800;
+       cursor:pointer;
+    }
+
+    .product-description {
+      background: #736551;
+      color: white;
+      padding: 40px;
+      font-family: 'Arial', sans-serif;
+      width: 100%;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out forwards;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.2s; }
+    .section:nth-child(2) { animation-delay: 0.4s; }
+    .section:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      display: none;
+    }
+
+    .subsection {
+      margin-bottom: 20px;
+    }
+
+    .subsection-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInLeft 0.6s ease-out forwards;
+    }
+
+    .feature-list li:nth-child(1) { animation-delay: 1s; }
+    .feature-list li:nth-child(2) { animation-delay: 1.1s; }
+    .feature-list li:nth-child(3) { animation-delay: 1.2s; }
+    .feature-list li:nth-child(4) { animation-delay: 1.3s; }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .feature-list li::before {
+      content: '●';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: white;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(255,215,0,0.2) 0%, rgba(255,165,0,0.2) 100%);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Hover effect untuk interaktivitas */
+    .section:hover .section-title {
+      color: #FFD700;
+      transition: color 0.3s ease;
+    }
+
+    /* galerry and size */
+    .gallery input[type=radio] {
+       display:none; 
+    }
+
+    .gallery .main-photo img { 
+      display:none;
+    }
+    .gallery input[type=radio]:checked + img {
+       display:block;
+    }
+
+    .thumbs {
+       display:flex; 
+       justify-content:center; 
+       gap:12px; 
+       margin-top:12px; 
+    }
+
+    .thumbs label {
+      background:#fff; 
+      border-radius:10px; 
+      padding:6px;
+      width:80px;
+      height:80px; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center;
+      cursor:pointer; 
+      border:2px solid transparent;
+    }
+
+    .thumbs label img { 
+      max-width:100%; 
+      max-height:100%;
+      object-fit:contain;
+    }
+
+    #g1:checked ~ .thumbs label[for="g1"],
+    #g2:checked ~ .thumbs label[for="g2"],
+    #g3:checked ~ .thumbs label[for="g3"] {
+      border-color:#2b2b2b;
+    }
+
+    .sizes input[type=radio] { 
+      display:none; 
+    }
+
+    .sizes label {
+      background:#dcdde1; 
+      color:#000; 
+      border-radius:8px;
+      padding:10px 14px; 
+      font-weight:bold;
+      cursor:pointer;
+    }
+    
+    .sizes input[type=radio]:checked + label {
+      background:#aaa; color:#fff;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #42393A;
+      color: #e5e7eb;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      display: flex;         
+      align-items: center;    
+      gap: 15px;              
+    }
+
+    /* Bagian kiri */
+    .footer-left img {
+      width: 140px;
+      height: 140px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer-left p {
+      max-width: 300px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .footer-left p b {
+      color: #fff;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Menu Tengah */
+    .footer-center {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;         
+      margin-top: -0px;  
+    }
+
+    .footer-center p {
+      margin: 0 0 10px; 
+      font-weight: bold;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .footer-center a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 15px;
+      gap: 20px;
+    }
+
+    .footer-center a:hover {
+      color: #f7f305;
+    }
+
+    /* Bagian kanan */
+    .footer-right p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 18px;
+      color: #fff;
+      margin-top: -1px;
+    }
+
+    .footer-right a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-right img {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #42393A;
+      padding: 6px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="logo fiks.png" alt="Logo">
+    </div>
+
+    <div class="nav-search-icons">
+      <nav>
+        <a href="Beranda.html">BERANDA</a>
+        <a href="produk.html">PRODUK</a>
+        <a href="spesifikasi1.html" class="active">SPESIFIKASI</a>
+        <a href="login1.html">LOGIN</a>
+      </nav>
+
+      <div class="search-container">
+        <input type="text" placeholder="Telusuri T-shirt Erigo" />
+        <button>
+          <img src="image search.png" alt="Search" width="20" height="20">
+        </button>
+      </div>
+
+      <div class="icons">
+        <button id="cartBtn">
+          <img src="icon keranjang.jpg" alt="Keranjang">
+          <div class="cart-count" id="cartCount">0</div>
+        </button>
+        <button>
+          <img src="icon user.png" alt="Akun">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DETAIL PRODUK -->
+  <main class="wrap">
+    <section class="gallery">
+      <figure class="main-photo">
+        <input type="radio" name="gallery" id="g1" checked>
+        <img src="best seller 9.Erigo T-Shirt Basic Maroon White - Kaos Unisex.png" alt="Kaos depan">
+
+        <input type="radio" name="gallery" id="g2">
+        <img src="best seller 9.1.webp" alt="Kaos belakang">
+
+        <input type="radio" name="gallery" id="g3">
+        <img src="best seller 9.2.3.webp" alt="Detail sablon">
+      </figure>
+
+      <div class="thumbs">
+        <label for="g1"><img src="best seller 9.Erigo T-Shirt Basic Maroon White - Kaos Unisex.png" alt=""></label>
+        <label for="g2"><img src="best seller 9.1.webp" alt=""></label>
+        <label for="g3"><img src="best seller 9.2.3.webp" alt=""></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h1 class="title">Erigo T-Shirt Basic Maroon White- Kaos Unisex</h1>
+      <div class="price">Rp. 98.000</div>
+
+      <div>
+        <div class="label">size</div>
+        <div class="sizes">
+          <input type="radio" id="s" name="size" checked>
+          <label for="s">S</label>
+
+          <input type="radio" id="m" name="size">
+          <label for="m">M</label>
+
+          <input type="radio" id="l" name="size">
+          <label for="l">L</label>
+
+          <input type="radio" id="xl" name="size">
+          <label for="xl">XL</label>
+
+          <input type="radio" id="xxl" name="size">
+          <label for="xxl">XXL</label>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">kuantitas</div>
+        <div class="qty">
+          <button type="button" id="minus">-</button>
+          <input type="number" id="qty" value="1" min="1" />
+          <button type="button" id="plus">+</button>
+        </div>
+      </div>
+
+      <button class="cta" id="addToCart">tambah ke keranjang</button>
+    </section>
+  </main>
+
+  <div class="product-description">
+    <div class="section">
+      <h2 class="section-title">Deskripsi Produk</h2>
+      <div class="subsection">
+        <h3 class="subsection-title">MODEL BAHAN</h3>
+        <ul class="feature-list">
+          <li><span class="highlight">T-shirt unisex</span> model regular fit yang tidak terlalu pas dan tidak terlalu longgar, cocok untuk hampir semua bentuk tubuh.</li>
+          <li>Terbuat dari <span class="highlight">cotton combed 30s</span> yang lembut dan nyaman dipakai, ideal untuk kegiatan sehari-hari di luar ruangan.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Desain Dan Tampilan</h2>
+      <ul class="feature-list">
+        <li>Warna utama <span class="highlight">hitam polos</span>, cocok dipadukan dengan berbagai jenis bawahan.</li>
+        <li>Bagian sablon menggunakan <span class="highlight">plastisol</span>, memberikan hasil sablon yang tajam dan tahan lama</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Ukuran Dan Potongan</h2>
+      <ul class="feature-list">
+        <li>Tersedia dalam ukuran <span class="highlight">S, M, L, XL, dan XXL</span> dengan toleransi ukuran ±1-2 cm</li>
+        <li><span class="highlight">Contoh tubuh model:</span> tinggi 185-186 cm, berat 75 kg, memakai ukuran XL</li>
+      </ul>
+    </div>
+  </div>
+
+    <script>
+    const minusBtn = document.getElementById("minus");
+    const plusBtn = document.getElementById("plus");
+    const qtyInput = document.getElementById("qty");
+    const addToCartBtn = document.getElementById("addToCart");
+    const cartCount = document.getElementById("cartCount");
+
+    let cartTotal = 0;
+
+    minusBtn.addEventListener("click", () => {
+      let val = parseInt(qtyInput.value);
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    plusBtn.addEventListener("click", () => {
+      let val = parseInt(qtyInput.value);
+      qtyInput.value = val + 1;
+    });
+
+    addToCartBtn.addEventListener("click", () => {
+      let qty = parseInt(qtyInput.value);
+      cartTotal += qty;
+      cartCount.textContent = cartTotal;
+    });
+  </script>
+
+
+  <!-- FOOTER -->
+<footer>
+    <!-- Kiri -->
+    <div class="footer-left">
+      <img src="logo fiks.png" alt="EG-Tee Logo">
+      <p>
+        <b>EG-Tee menghadirkan koleksi T-shirt dari brand Erigo dengan berbagai pilihan model.</b><br>
+        Nyaman dipakai, desain kekinian, cocok untuk gaya harian kamu.
+      </p>
+    </div>
+
+    <!-- Tengah -->
+    <div class="footer-center">
+       <p>Navigasi</p>
+      <a href="Beranda.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="spesifikasi1.html">Spesifikasi</a>
+      <a href="login1.html">Login</a>
+    </div>
+
+    <!-- Kanan -->
+    <div class="footer-right">
+      <p>Hubungi Kami</p>
+      <a href="tel:083289341263">
+        <img src="image WA.png" alt="WhatsApp"> 0832-8934-1263
+      </a>
+      <a href="#">
+        <img src="image IG.png" alt="Instagram"> EG-Tee.Official
+      </a>
+      <a href="#">
+        <img src="image tiktok.png" alt="TikTok"> EG-Tee.Wear
+      </a>
+    </div>
+    
+  </footer>
+</body>
+</html>
