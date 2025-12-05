@@ -1,3 +1,7 @@
+<?php 
+include "../../routes/admin.php";  // HANYA INI SAJA, hapus yang lain
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +39,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" href="?page=dashboard" aria-expanded="false">
                 <i class="ti ti-atom"></i>
                 <span class="hide-menu">Dashboard</span>
               </a>
@@ -2620,7 +2624,21 @@
         </nav>
       </header>
       <!--  Header End -->
-   
+
+<!-- Main wrapper -->
+<div class="body-wrapper">
+    <div class="container-fluid p-4">
+        <div class="card">
+            <div class="card-body">
+                <?php 
+                // Path yang SAMA seperti di atas
+                include "../../routes/admin.php";
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+
   <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/sidebarmenu.js"></script>

@@ -1,4 +1,4 @@
-  <header>
+    <header>
     <div class="logo">
       <img src="logo fiks.png" alt="Logo">
     </div>

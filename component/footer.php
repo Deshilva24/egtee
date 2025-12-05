@@ -1,4 +1,4 @@
- <footer>
+<footer>
     <!-- Kiri -->
     <div class="footer-left">
       <img src="logo fiks.png" alt="EG-Tee Logo">
