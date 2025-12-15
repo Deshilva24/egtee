@@ -1,4 +1,5 @@
 <?php
+
 $page = $_GET['page'] ?? 'dashboard';
 
 // Absolute path
@@ -9,7 +10,6 @@ ob_start();
 
 switch ($page) {
     case 'dashboard':
-        include $root . '/page/Admin/admin-page/dashboard.php';
         break;
 
     case 'genre':

@@ -20,7 +20,7 @@
                     <div class="card-text">
                         <h3 class="card-title">KOLABORASI ERIGO X MPL INDONESIA</h3>
                         <p class="card-description">
-                            Diengah hiruk pikuk persaingan dunia fashion maupaun game, akhirnya terciptalah kolaborasi yang menakjubkan. Dengan ambis besar dan kreativitas menyatukan misi untuk menjadirkan sesuatu yang akan menjadi perbincangan hangat!
+                            Ditengah hiruk pikuk persaingan dunia fashion maupaun game, akhirnya terciptalah kolaborasi yang menakjubkan. Dengan ambis besar dan kreativitas menyatukan misi untuk menjadirkan sesuatu yang akan menjadi perbincangan hangat!
                         </p>
                     </div>
                 </div>
