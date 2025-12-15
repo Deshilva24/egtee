@@ -1,6 +1,11 @@
 <?php
+// session_start();
+require_once('./../config/Database.php');
+require_once('./../model/models.php');
+require_once('./../controller/controllers.php');
 
 $page = $_GET['page'] ?? 'dashboard';
+$action = $_GET['action'] ?? 'index';
 
 // Absolute path
 $root = $_SERVER['DOCUMENT_ROOT'] . '/Web EG-TEE';

@@ -1,5 +1,5 @@
 <?php 
-include "../../routes/admin.php";  // HANYA INI SAJA, hapus yang lain
+session_start();
 ?>
 
 <!doctype html>
@@ -17,8 +17,6 @@ include "../../routes/admin.php";  // HANYA INI SAJA, hapus yang lain
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-
-  
 
     <!-- Sidebar Start -->
     <aside class="left-sidebar">
@@ -56,14 +54,11 @@ include "../../routes/admin.php";  // HANYA INI SAJA, hapus yang lain
             <!-- Dashboard -->
             <!-- ---------------------------------- -->
             <li class="sidebar-item">
-              <a class="sidebar-link justify-content-between"  
-                href="#" aria-expanded="false">
-                <div class="d-flex align-items-center gap-3">
-                  <span class="d-flex">
-                    <i class="ti ti-aperture"></i>
-                  </span>
-                  <span class="hide-menu">Tampil Genre</span>
-                </div>
+            <a class="sidebar-link" href="?page=tampil_genre" aria-expanded="false">
+              <i class="ti ti-aperture"></i>
+              <span class="hide-menu">Tampil Genre</span>
+            </a>
+          </li>
                 
               </a>
             </li>
@@ -1854,8 +1849,15 @@ include "../../routes/admin.php";  // HANYA INI SAJA, hapus yang lain
         </nav>
       </header>
       <!--  Header End -->
- <div class="body-wrapper-inner">
+      <?php
+      // Tentukan halaman yang akan ditampilkan
+      $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+      ?>
+      
+      <div class="body-wrapper-inner">
         <div class="container-fluid">
+          <?php if($page == 'dashboard'): ?>
+
           <!--  Row 1 -->
           <div class="row">
             <div class="col-lg-8">
@@ -2337,24 +2339,25 @@ include "../../routes/admin.php";  // HANYA INI SAJA, hapus yang lain
             <p class="mb-0 fs-4">Design and Developed by <a href="#"
                 class="pe-1 text-primary text-decoration-underline">Wrappixel.com</a> Distributed by <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-      <!-- Main wrapper -->
-      <div class="body-wrapper">
-        <div class="container-fluid p-4">
-          <div class="card">
-            <div class="card-body">
-              <!-- Konten dari admin.php akan muncul di sini secara otomatis -->
+          <?php elseif($page == 'genre' || $page == 'input_genre'): ?>
+            <!-- Tampilkan Input Genre -->
+            <?php include '../../page/Admin/admin-page/input_genre.php'; ?>
+            
+         <?php elseif($page == 'tampil_genre'): ?>
+            <!-- Tampilkan Tampil Genre -->
+            <?php include(__DIR__ . '/admin-page/tampil_genre.php'); ?>
+            
+          <?php else: ?>
+            <div class="alert alert-danger">
+              Halaman tidak ditemukan
             </div>
-          </div>
+          <?php endif; ?>
         </div>
       </div>
-
     </div>
   </div>
 
+  
   <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/sidebarmenu.js"></script>

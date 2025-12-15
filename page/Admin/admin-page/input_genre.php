@@ -1,18 +1,23 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Inisialisasi session jika belum ada
 if(!isset($_SESSION['genre_data'])) {
     $_SESSION['genre_data'] = [];
 }
 
-// Simpan data ke session untuk ditampilkan di halaman Tampil Genre
+$error = '';
+$nama_value = '';
+
+// Proses form submission
 if(isset($_POST['submit'])) {
     $nama = isset($_POST['nama']) ? trim($_POST['nama']) : '';
+    $nama_value = $nama;
     
     if(empty($nama)) {
         $error = "⚠️ Nama harus diisi!";
-        $success = false;
     } else {
         $new_data = [
             'id' => uniqid(),
@@ -24,17 +29,17 @@ if(isset($_POST['submit'])) {
         // Tambah data ke awal array
         array_unshift($_SESSION['genre_data'], $new_data);
         
-        // Set success flag
-        $success = true;
-        $input_data = htmlspecialchars($nama);
+        // Simpan pesan sukses
+        $_SESSION['success_message'] = "✅ Genre '$nama' berhasil ditambahkan!";
         
-        // Redirect ke halaman Tampil Genre dengan parameter success
-        header('Location: ?page=tampil_genre&success=1');
+        // Redirect ke halaman Tampil Genre
+        header('Location: ../../index.php?page=tampil_genre');
         exit();
     }
 }
 ?>
 
+<!-- HTML MULAI DI SINI -->
 <div style="padding-top: 150px;">
     <div class="d-flex justify-content-center">
         <div class="col-md-6 col-lg-4">
@@ -44,34 +49,31 @@ if(isset($_POST['submit'])) {
                         <i class="ti ti-edit me-2"></i>Input Genre
                     </h5>
                     
+                    <!-- TAMPILKAN ERROR JIKA ADA -->
+                    <?php if(!empty($error)): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?php echo $error; ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <!-- FORM -->
                     <form method="POST" action="" class="text-white">
                         <div class="mb-3">
                             <label for="nama" class="form-label fw-bold">NAMA GENRE</label>
                             <input name="nama" type="text" class="form-control form-control-lg bg-white border-0" 
                                    id="nama" 
-                                   value="<?php echo isset($_POST['nama']) && !isset($success) ? htmlspecialchars($_POST['nama']) : ''; ?>" 
+                                   value="<?php echo htmlspecialchars($nama_value); ?>" 
                                    placeholder="Masukkan nama genre di sini..." 
                                    style="color: #333;" 
-                                   required>
+                                   required
+                                   autofocus>
                         </div>
                         <button type="submit" class="btn btn-light btn-lg w-100 fw-bold" name="submit">
                             <i class="ti ti-send me-2"></i>SUBMIT DATA
                         </button>
                     </form>
                 </div>
-            </div>
-
-            <?php if(isset($error) && $error): ?>
-            <div class="alert alert-danger alert-lg mt-3">
-                <i class="ti ti-alert-circle me-2"></i><?php echo $error; ?>
-            </div>
-            <?php endif; ?>
-
-            <!-- Tombol untuk melihat data -->
-            <div class="mt-4 text-center">
-                <a href="?page=tampil_genre" class="btn btn-info btn-lg w-100">
-                    <i class="ti ti-eye me-2"></i>Lihat Data Genre
-                </a>
             </div>
         </div>
     </div>
@@ -120,19 +122,7 @@ if(isset($_POST['submit'])) {
     background-color: #f8f9fa;
 }
 
-.btn-info {
-    background-color: #0dcaf0;
-    color: white;
-    border: none;
-}
-
-.btn-info:hover {
-    background-color: #0baccc;
-}
-
-.alert-lg {
-    padding: 1.25rem 1.5rem;
-    font-size: 1.1rem;
+.alert {
     border-radius: 10px;
 }
 
